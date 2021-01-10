@@ -6,10 +6,15 @@ I am personally using along my journey with Go.
 
 ## functions and vars
 
+- len(v Type) int
+- bufio.NewScanner(r io.Reader) *Scanner
+- bufio: (s *Scanner).Scan() bool
+- bufio: (s *Scanner).Text() string
 - fmt.Println(a ...interface{}) (n int, err error)
 - fmt.Sprintf(format string, a ...interface{}) string
 - strings.Join(elems []string, sep string) string
 - os.Args []string
+- os.Stdin NewFile(uintptr(syscall.Stdin), "/dev/stdin")
 - runtime.NumCPU() int
 - time.Now() Time
 - time.Since(t Time) Duration
@@ -19,16 +24,18 @@ I am personally using along my journey with Go.
 - for
 - func
 - import
+- map
 - package
 - range
 - var
 
 ***keywords pool***
-- break        default			interface	select
-- case         defer        go		map		struct
-- chan         else         goto				switch
-- const        fallthrough  if				type
-- continue						return       
+
+- break		default		interface	select
+- case		defer		go		struct
+- chan		else		goto		switch
+- const		fallthrough	if		type
+- continue	return       
 
 ## tools
 
