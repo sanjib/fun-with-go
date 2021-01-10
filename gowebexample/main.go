@@ -8,10 +8,13 @@ import (
 
 func handlerFuncHome(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprintf(w, "<h3>Hello, you've requested %s</h3>", r.URL.Path)
+	fmt.Fprintf(w, "<img src=\"/static/assets/smile.gif\"/><h3>Hello, you've requested %s</h3>", r.URL.Path)
 }
 
 func main() {
+	fs := http.FileServer(http.Dir("static/"))
+
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
 	http.HandleFunc("/", handlerFuncHome)
 
 	server := http.Server{
