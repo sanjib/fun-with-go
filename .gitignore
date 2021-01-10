@@ -14,4 +14,4 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-gowebexample/
+gowebexample/certkey.go
