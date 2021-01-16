@@ -24,6 +24,7 @@ I am personally using along my journey with Go.
 
 - break
 - case
+- chan
 - const // example: const World = "世界"
 - default
 - defer
@@ -38,6 +39,7 @@ I am personally using along my journey with Go.
 - package
 - range
 - return
+- select
 - struct
 - switch
 - type // example: switch v := i.(type)
@@ -45,8 +47,6 @@ I am personally using along my journey with Go.
 
 **_keywords pool_**
 
-- select
-- chan
 - goto
 - fallthrough
 - continue
@@ -113,6 +113,9 @@ I am personally using along my journey with Go.
 - type assertion syntax is similar to that of reading from a map
 - the error type is a built-in interface similar to fmt.Stringer
 - as with fmt.Stringer, the fmt package looks for the error interface when printing values
+- only the sender should close a channel, never the receiver
+- [fibonacci with scalar array and channels](./tour/4.concurrency/4.range_and_close/range_and_close.go) - practice
+- closing a channel is only necessary when the receiver must be told there are no more values coming, such as to terminate a range loop
 
 ```go
 type Stringer interface {
@@ -137,6 +140,8 @@ type error interface {
 - [implement Read that emits 'A'](./tour/3.methods_and_interfaces/22.exe_readers/exe_readers.go)
 - [implement rot13Reader](./tour/3.methods_and_interfaces/23.exe_rot13_reader/exe_rot13_reader.go)
 - [implement Image](./tour/3.methods_and_interfaces/25.exe_images/exe_images.go)
+- [implement equivalent binary trees](./tour/4.concurrency/7-8.exe_eq_binary_trees/exe_eq_binary_trees.go)
+- [implement web crawler](./tour/4.concurrency/10.exe_web_crawler/exe_web_crawler.go)
 
 ## ref blog articles
 
