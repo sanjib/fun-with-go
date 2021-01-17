@@ -57,7 +57,7 @@ I am personally using along my journey with Go.
 - go build [packages]
 - go doc [pkg] [methodOrField]
 - go fmt [filename]
-- go get [packages]
+- go get [packages] (-v:verbose)
 - go help [keyword]
 - go run [filename]
 - go test -bench=. [filename]

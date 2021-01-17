@@ -1,41 +1,55 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
+
+	"./pages"
+	_ "github.com/go-sql-driver/mysql"
 )
 
-func handlerFuncHome(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprintf(w, "<img src=\"/static/assets/smile.gif\"/><h3>Hello, you've requested %s</h3>", r.URL.Path)
+func initDB() {
+	db, err := sql.Open("mysql", "root@(127.0.0.1:3306)/va_go_test?parseTime=true")
+	if err != nil {
+		fmt.Println(err)
+	}
+	err = db.Ping()
+	if err != nil {
+		fmt.Println(err)
+	}
+	// Manually inject db connection to pages package
+	pages.DB = db
 }
 
 func main() {
+	initDB()
 	fs := http.FileServer(http.Dir("static/"))
 
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
-	http.HandleFunc("/", handlerFuncHome)
+	http.HandleFunc("/book/view/page/", pages.BookViewPage)
+	http.HandleFunc("/contact-us/", pages.ContactUsPage)
+	http.HandleFunc("/db/", pages.DBPage)
+	http.HandleFunc("/todos/", pages.TodosPage)
+	http.HandleFunc("/", pages.HomePage)
 
 	server := http.Server{
 		Addr:    ":3000",
 		Handler: nil,
 	}
 
-	// Create 2 funcs in main pkg certkey.go that returns the path to the
+	// Create 2 funcs in certkey.go that returns the path to the
 	// cert and key files:
 	// - localCertKey() (string string)
 	// - remoteCertKey() (string string)
 	//
-	// For example:
-	// func localCertKey() (string, string) {
-	//     cert := filepath.Join("[dir containing cert]", "cert")
-	// 	   key := filepath.Join("[dir containing key]", "key")
-	// return cert, key
-	// }
+	// Toggle for local or remote: localCertKey() or remoteCertKey()
 	cert, key := localCertKey()
-	// cert, key := remoteCertKey()
 
-	fmt.Println("--> Go server starting at port 3000...")
-	log.Fatal(server.ListenAndServeTLS(cert, key))
+	fmt.Println("--> Go TLS server starting at port 3000...")
+	err := server.ListenAndServeTLS(cert, key)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
