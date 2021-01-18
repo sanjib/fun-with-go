@@ -1,0 +1,24 @@
+package main
+
+import "path/filepath"
+
+// Create 2 funcs in certkey.go that returns the path to the
+// cert and key files:
+// - localCertKey() (string string)
+// - remoteCertKey() (string string)
+
+// localCertKey returns the cert and key for local testing
+func localCertKey() (string, string) {
+	cert := filepath.Join("C:/Users/xxx/yyy/ssl/example.com/", "cert.pem")
+	key := filepath.Join("C:/Users/xxx/yyy/ssl/example.com/", "server.key")
+	return cert, key
+}
+
+// remoteCertKey returns the cert and key for production
+// certbot will renew the crt and key every 6 months so filenames will change
+// some mechanism will be required to monitor and register the new filename
+func remoteCertKey() (string, string) {
+	cert := filepath.Join("/home/xxx/ssl/certs/", "example_com_98892ad8c1.crt")
+	key := filepath.Join("/home/xxx/ssl/keys/", "98892ad8c1.key")
+	return cert, key
+}

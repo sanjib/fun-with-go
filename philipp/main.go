@@ -58,11 +58,6 @@ func main() {
 		Handler: nil,
 	}
 
-	// Create 2 funcs in certkey.go that returns the path to the
-	// cert and key files:
-	// - localCertKey() (string string)
-	// - remoteCertKey() (string string)
-	//
 	// Toggle for local or remote: localCertKey() or remoteCertKey()
 	cert, key := localCertKey()
 
