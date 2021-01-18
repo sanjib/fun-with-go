@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 
+	"./middleware"
 	"./pages"
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -28,10 +29,28 @@ func main() {
 	fs := http.FileServer(http.Dir("static/"))
 
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	// 3 levels
 	http.HandleFunc("/book/view/page/", pages.BookViewPage)
+
+	// 2 levels
+	http.HandleFunc("/auth/login/", pages.LoginPage)
+	http.HandleFunc("/auth/logout/", pages.LogoutPage)
+	http.HandleFunc("/ws/echo/", pages.EchoPage)
+	http.HandleFunc("/ws/websockets/", pages.WebSocketsPage)
+
+	// 1 level
 	http.HandleFunc("/contact-us/", pages.ContactUsPage)
 	http.HandleFunc("/db/", pages.DBPage)
+	http.HandleFunc("/decode/", pages.DecodePage)
+	http.HandleFunc("/encode/", pages.EncodePage)
+	http.HandleFunc("/hashing/", pages.HashingPage)
+	http.HandleFunc("/secret/", pages.SecretPage)
 	http.HandleFunc("/todos/", pages.TodosPage)
+	http.HandleFunc(
+		"/tracking/",
+		middleware.Logging(pages.TrackingPage),
+	)
 	http.HandleFunc("/", pages.HomePage)
 
 	server := http.Server{

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Sockets</title>
+</head>
+<body>
+
+<div>
+    <label for="msg">Message to Server</label>
+    <input type="text" id="msg" name="msg" />
+    <button type="button" onclick="sendMsg()">Send Message</button>
+</div>
+<div>
+    <pre id="response-from-server"></pre>
+</div>
+
+<script>
+    const msgFromUser = document.getElementById("msg");
+    const responseFromServer = document.getElementById("response-from-server")
+    const socket = new WebSocket("wss://viaye.san:3000/ws/echo/")
+
+    socket.onopen = function () {
+        responseFromServer.innerText += "Status: Connected\n"
+    }
+
+    socket.onmessage = function (e) {
+        responseFromServer.innerText += "Server says: " + e.data + "\n"
+    }
+
+    function sendMsg() {
+        socket.send(msgFromUser.value)
+        msgFromUser.value = ""
+    }
+
+</script>
+
+</body>
+</html>
