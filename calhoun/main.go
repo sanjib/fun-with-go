@@ -1,14 +1,21 @@
 package main
 
 import (
+	"calhoun/handlers"
+	"fmt"
 	"net/http"
 )
 
 func main() {
-	http.HandleFunc("/api/movies", handleAPIMovies)
-	http.HandleFunc("/api/movie/", handleAPIMovie)
-	http.HandleFunc("/hello/", handleHello)
-	http.HandleFunc("/", handleAll)
-	server := http.Server{Addr: ":3000"}
-	server.ListenAndServe()
+	http.HandleFunc("/api/movies", handlers.HandleAPIMovies)
+	http.HandleFunc("/api/movie/", handlers.HandleAPIMovie)
+	http.HandleFunc("/hello/", handlers.HandleHello)
+	http.HandleFunc("/", handlers.HandleDefault)
+
+	port := "3000"
+	server := http.Server{Addr: ":" + port}
+	fmt.Println("--> Starting server at port", port)
+	if err := server.ListenAndServe(); err != nil {
+		fmt.Println(err)
+	}
 }
