@@ -1,0 +1,17 @@
+<h1>Test Template</h1>
+
+<h3>Hello, {{.User.Name}}</h3>
+<p>Your age is {{.User.Age}}</p>
+<p>Favorite Foods: {{.User.FavoriteFoods}}</p>
+
+<h3>Colors</h3>
+
+<ul>
+{{range $index, $element := .Colors}}
+    <li>{{$index}}: {{$element}}</li>
+{{end}}
+</ul>
+
+<script>
+    console.log({{.ConsoleLogMsgHi}})
+</script>
