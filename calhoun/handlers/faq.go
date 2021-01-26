@@ -1,10 +1,20 @@
 package handlers
 
 import (
+	"calhoun/views"
 	"fmt"
 	"net/http"
 )
 
 func HandleFAQ(w http.ResponseWriter, _ *http.Request) {
-	_, _ = fmt.Fprintf(w, "<h1>FAQ</h1><p>1...2...3...</p>")
+	t := views.NewView("bootstrap", "views/faq.gohtml")
+
+	err := t.Template.ExecuteTemplate(w, t.Layout, struct {
+		Title string
+	}{
+		Title: "FAQ",
+	})
+	if err != nil {
+		fmt.Println(err)
+	}
 }
