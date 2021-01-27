@@ -1,9 +1,16 @@
-
-
 .message-of-the-day {
     background-color: lightblue;
     text-align: center;
     padding: 0.2em;
+}
+
+.content {
+    padding: 2em;
+}
+
+.signup {
+    max-width: 40em;
+    margin: auto;
 }
 
 footer {

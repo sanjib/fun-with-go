@@ -12,9 +12,10 @@ func main() {
 
 	http.HandleFunc("/api/movies", handlers.HandleAPIMovies)
 	http.HandleFunc("/api/movie/", handlers.HandleAPIMovie)
-	http.HandleFunc("/hello/", handlers.HandleHello)
 	http.HandleFunc("/contacts/", handlers.HandleContacts)
+	http.HandleFunc("/hello/", handlers.HandleHello)
 	http.HandleFunc("/faq/", handlers.HandleFAQ)
+	http.HandleFunc("/signup/", handlers.HandleSignup)
 	http.HandleFunc("/", handlers.HandleDefault)
 
 	port := "3000"
@@ -23,4 +24,8 @@ func main() {
 	if err := server.ListenAndServe(); err != nil {
 		fmt.Println(err)
 	}
+}
+
+func Must() {
+
 }

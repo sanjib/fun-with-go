@@ -1,0 +1,31 @@
+{{define "content"}}
+    <div class="card signup">
+{{/*        <div class="card-header">Sign Up</div>*/}}
+        <div class="card-body">
+            <h5 class="card-title">Sign Up</h5>
+{{/*            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*/}}
+{{/*            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*/}}
+            <p class="card-text">{{template "signupForm"}}</p>
+        </div>
+    </div>
+
+{{end}}
+
+{{define "signupForm"}}
+    <form method="post">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+{{/*            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>*/}}
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="password">
+        </div>
+{{/*        <div class="mb-3 form-check">*/}}
+{{/*            <input type="checkbox" class="form-check-input" id="exampleCheck1">*/}}
+{{/*            <label class="form-check-label" for="exampleCheck1">Check me out</label>*/}}
+{{/*        </div>*/}}
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+{{end}}
