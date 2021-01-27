@@ -1,6 +1,7 @@
 package main
 
 import (
+	"calhoun/controllers"
 	"calhoun/handlers"
 	"fmt"
 	"net/http"
@@ -10,12 +11,14 @@ func main() {
 	fs := http.FileServer(http.Dir("assets"))
 	http.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
+	usersCtrl := controllers.NewUsers()
+
 	http.HandleFunc("/api/movies", handlers.HandleAPIMovies)
 	http.HandleFunc("/api/movie/", handlers.HandleAPIMovie)
 	http.HandleFunc("/contacts/", handlers.HandleContacts)
 	http.HandleFunc("/hello/", handlers.HandleHello)
 	http.HandleFunc("/faq/", handlers.HandleFAQ)
-	http.HandleFunc("/signup/", handlers.HandleSignup)
+	http.HandleFunc("/signup/", usersCtrl.New)
 	http.HandleFunc("/", handlers.HandleDefault)
 
 	port := "3000"
