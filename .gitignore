@@ -6,6 +6,9 @@
 *.dylib
 *.test
 *.out
+*.pfx
+*.pem
+*.key
 
 philipp/certkey.go
 .idea/
