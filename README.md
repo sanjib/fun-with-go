@@ -87,21 +87,21 @@ I am personally using along my journey with Go.
 
 ## helpful custom programs
 
-- [generate random number with crypto/rand based seed](./tour/2.basics/1.pkg_var_func/1.packages/packages.go)
+- [generate random number with crypto/rand based seed](golang/tour/2.basics/1.pkg_var_func/1.packages/packages.go)
 
 ## nuances
 
-- [switch - see switch condition](./tour/2.basics/2.flow_ctrl/9.switch/switch.go)
-- [switch evaluation order - see evaluation in case](./tour/2.basics/2.flow_ctrl/10.switch_eval_order/switch_eval_order.go)
-- [switch with no condition - see no condition](./tour/2.basics/2.flow_ctrl/11.switch_with_no_cond/switch_with_no_cond.go)
-- [pointers - unerstand pointer, &, \*](./tour/2.basics/3.more_types/1.pointers/pointers.go)
-- [struct pointers - see struct field change via pointer](./tour/2.basics/3.more_types/4.struct_pointers/struct_pointers.go)
+- [switch - see switch condition](golang/tour/2.basics/2.flow_ctrl/9.switch/switch.go)
+- [switch evaluation order - see evaluation in case](golang/tour/2.basics/2.flow_ctrl/10.switch_eval_order/switch_eval_order.go)
+- [switch with no condition - see no condition](golang/tour/2.basics/2.flow_ctrl/11.switch_with_no_cond/switch_with_no_cond.go)
+- [pointers - unerstand pointer, &, \*](golang/tour/2.basics/3.more_types/1.pointers/pointers.go)
+- [struct pointers - see struct field change via pointer](golang/tour/2.basics/3.more_types/4.struct_pointers/struct_pointers.go)
 - a slice consists of a pointer to the array, the length of the segment, and its capacity
-- [slice length & capacity - see how underlying array capacity changes when array elements are removed from front of array](./tour/2.basics/3.more_types/11.slice_len_cap/slice_len_cap.go)
-- [create slice with make - reinforce understanding of how removing array elements from beginning affect underlying array capacity](./tour/2.basics/3.more_types/13.create_slice_make/create_slice_make.go)
-- [pointer receivers](./tour/3.methods_and_interfaces/4.methods_pointers/methods_pointers.go)
-- [pointers & functions](./tour/3.methods_and_interfaces/5.pointers_and_functions/pointers_and_functions.go)
-- [methods and pointer indirection - methods with pointer receivers take either a value (as a convenience) or a pointer](./tour/3.methods_and_interfaces/6.methods_and_pointer_indirection/methods_and_pointer_indirection.go)
+- [slice length & capacity - see how underlying array capacity changes when array elements are removed from front of array](golang/tour/2.basics/3.more_types/11.slice_len_cap/slice_len_cap.go)
+- [create slice with make - reinforce understanding of how removing array elements from beginning affect underlying array capacity](golang/tour/2.basics/3.more_types/13.create_slice_make/create_slice_make.go)
+- [pointer receivers](golang/tour/3.methods_and_interfaces/4.methods_pointers/methods_pointers.go)
+- [pointers & functions](golang/tour/3.methods_and_interfaces/5.pointers_and_functions/pointers_and_functions.go)
+- [methods and pointer indirection - methods with pointer receivers take either a value (as a convenience) or a pointer](golang/tour/3.methods_and_interfaces/6.methods_and_pointer_indirection/methods_and_pointer_indirection.go)
 - therefore method pointer receivers can modify the received value even if it was passed as a value instead of a pointer
 - all methods on a given type should have either value or pointer receivers, but not a mixture of both
 - a value of interface type can hold any value that implements those methods
@@ -114,7 +114,7 @@ I am personally using along my journey with Go.
 - the error type is a built-in interface similar to fmt.Stringer
 - as with fmt.Stringer, the fmt package looks for the error interface when printing values
 - only the sender should close a channel, never the receiver
-- [fibonacci with scalar array and channels](./tour/4.concurrency/4.range_and_close/range_and_close.go) - practice
+- [fibonacci with scalar array and channels](golang/tour/4.concurrency/4.range_and_close/range_and_close.go) - practice
 - closing a channel is only necessary when the receiver must be told there are no more values coming, such as to terminate a range loop
 
 ```go
@@ -130,18 +130,18 @@ type error interface {
 
 ## exercise solutions
 
-- [custom Sqrt function](./tour/2.basics/2.flow_ctrl/8.exe_loops_funcs/exe_loops_funcs.go)
-- [implement Pic](./tour/2.basics/3.more_types/18.exe_slices/exe_slices.go)
-- [implement WordCount](./tour/2.basics/3.more_types/23.exe_maps/exe_maps.go)
-- [implement Fibonacci sequence using closure](./tour/2.basics/3.more_types/26.exe_fib_closure/exe_fib_closure.go)
-- [implement stringer](./tour/3.methods_and_interfaces/18.exe_stringers/exe_stringers.go)
-- [errors](./tour/3.methods_and_interfaces/20.exe_errors/exe_errors.go)
-- [errors](./tour/3.methods_and_interfaces/20.exe_errors/exe_errors.go)
-- [implement Read that emits 'A'](./tour/3.methods_and_interfaces/22.exe_readers/exe_readers.go)
-- [implement rot13Reader](./tour/3.methods_and_interfaces/23.exe_rot13_reader/exe_rot13_reader.go)
-- [implement Image](./tour/3.methods_and_interfaces/25.exe_images/exe_images.go)
-- [implement equivalent binary trees](./tour/4.concurrency/7-8.exe_eq_binary_trees/exe_eq_binary_trees.go)
-- [implement web crawler](./tour/4.concurrency/10.exe_web_crawler/exe_web_crawler.go)
+- [custom Sqrt function](golang/tour/2.basics/2.flow_ctrl/8.exe_loops_funcs/exe_loops_funcs.go)
+- [implement Pic](golang/tour/2.basics/3.more_types/18.exe_slices/exe_slices.go)
+- [implement WordCount](golang/tour/2.basics/3.more_types/23.exe_maps/exe_maps.go)
+- [implement Fibonacci sequence using closure](golang/tour/2.basics/3.more_types/26.exe_fib_closure/exe_fib_closure.go)
+- [implement stringer](golang/tour/3.methods_and_interfaces/18.exe_stringers/exe_stringers.go)
+- [errors](golang/tour/3.methods_and_interfaces/20.exe_errors/exe_errors.go)
+- [errors](golang/tour/3.methods_and_interfaces/20.exe_errors/exe_errors.go)
+- [implement Read that emits 'A'](golang/tour/3.methods_and_interfaces/22.exe_readers/exe_readers.go)
+- [implement rot13Reader](golang/tour/3.methods_and_interfaces/23.exe_rot13_reader/exe_rot13_reader.go)
+- [implement Image](golang/tour/3.methods_and_interfaces/25.exe_images/exe_images.go)
+- [implement equivalent binary trees](golang/tour/4.concurrency/7-8.exe_eq_binary_trees/exe_eq_binary_trees.go)
+- [implement web crawler](golang/tour/4.concurrency/10.exe_web_crawler/exe_web_crawler.go)
 
 ## ref blog articles
 
