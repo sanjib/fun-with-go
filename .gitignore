@@ -9,6 +9,8 @@
 *.pfx
 *.pem
 *.key
+*.swp
+*~
 
 philipp/certkey.go
 .idea/
