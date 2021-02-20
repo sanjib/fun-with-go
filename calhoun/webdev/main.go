@@ -1,8 +1,8 @@
 package main
 
 import (
-	"calhoun/controllers"
-	"calhoun/handlers"
+	"calhoun/webdev/controllers"
+	"calhoun/webdev/handlers"
 	"fmt"
 	"net/http"
 )

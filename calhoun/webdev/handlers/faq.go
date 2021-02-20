@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"calhoun/views"
+	"calhoun/webdev/views"
 	"fmt"
 	"net/http"
 )
