@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"strconv"
 )
 
 func main() {
@@ -20,7 +21,12 @@ func main() {
 	}
 
 	var num float64
-	_, err := fmt.Sscanf(args[0], "%f", &num)
+	//_, err := fmt.Sscanf(args[0], "%f", &num)
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
+	num, err := strconv.ParseFloat(args[0], 64)
 	if err != nil {
 		fmt.Println(err)
 		return
