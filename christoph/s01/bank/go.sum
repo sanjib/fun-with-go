@@ -1,0 +1,4 @@
+github.com/appliedgocourses/bank v0.1.0 h1:TmmcVjnwubboOppGqHRtuRbOOng3q6agJNYoYp+6LXU=
+github.com/appliedgocourses/bank v0.1.0/go.mod h1:QtUMR8zgLyNiErgRvDVPgmeBhrdhAEw9RTnD3cN0uzA=
+github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
+github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
