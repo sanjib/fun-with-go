@@ -13,4 +13,5 @@
 *~
 
 philipp/certkey.go
-.idea/
+.idea
+_res
